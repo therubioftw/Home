@@ -1,207 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roy Rubin | @therubio</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- React & ReactDOM -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <!-- Babel for JSX processing -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @keyframes shine {
-            0% { transform: translateX(-100%) skewX(-15deg); }
-            100% { transform: translateX(200%) skewX(-15deg); }
-        }
-        .animate-shine {
-            animation: shine 1.5s infinite ease-in-out;
-        }
-        body { background-color: #0a0a0c; color: #e2e8f0; margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; }
-        .bg-glow-1 { background: radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%); }
-        .bg-glow-2 { background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@therubio &middot; Roy Rubin</title>
+  <meta name="description" content="Roy Rubin &mdash; find me everywhere as @therubio">
+  <meta name="theme-color" content="#0d0d1a">
+  <link rel="icon" href="avatar.jpg">
+  <link rel="apple-touch-icon" href="avatar.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Roy Rubin">
+  <meta property="og:title" content="Roy Rubin &middot; @therubio">
+  <meta property="og:description" content="Roy Rubin &mdash; find me everywhere as @therubio">
+  <meta property="og:url" content="https://therubioftw.github.io/Home/">
+  <meta property="og:image" content="https://therubioftw.github.io/Home/avatar.jpg">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Roy Rubin &middot; @therubio">
+  <meta name="twitter:description" content="Roy Rubin &mdash; find me everywhere as @therubio">
+  <meta name="twitter:image" content="https://therubioftw.github.io/Home/avatar.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #0d0d1a;
+      --card:         rgba(255,255,255,0.07);
+      --card-hover:   rgba(255,255,255,0.12);
+      --border:       rgba(255,255,255,0.11);
+      --border-hover: rgba(139,92,246,0.5);
+      --text:         #eef2f8;
+      --muted:        #7a8fa6;
+      --accent:       #8b5cf6;
+      --glow:         rgba(139,92,246,0.3);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      padding-bottom: 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none; z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed; top: -180px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+
+    /* Profile */
+    .profile { text-align: center; padding: 60px 0 44px; }
+    .avatar-wrap { position: relative; display: inline-block; margin-bottom: 22px; }
+    .avatar-ring {
+      position: absolute; inset: -3px; border-radius: 50%;
+      background: conic-gradient(from 0deg, #6366f1, #8b5cf6, #a78bfa, #ec4899, #6366f1);
+      z-index: -1; animation: spin 6s linear infinite; opacity: 0.6;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .avatar {
+      width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
+      display: block; border: 3px solid var(--bg); position: relative; z-index: 1;
+    }
+    .profile h1 {
+      font-size: 1.8rem; font-weight: 700; letter-spacing: -0.025em;
+      background: linear-gradient(135deg, #f1f5f9 20%, #a5b4fc 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 6px;
+    }
+    .profile .handle { color: var(--muted); font-size: 0.875rem; }
+
+    /* Section */
+    .section { margin-bottom: 28px; }
+
+    .section-header { display: flex; align-items: center; margin-bottom: 10px; }
+
+    .section-title {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    /* Grids */
+    .links-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
+    }
+    .links-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .links-grid.cols-1 { grid-template-columns: 1fr; }
+
+    /* Card */
+    .link-card {
+      display: flex; align-items: center; gap: 11px; padding: 11px 14px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      color: var(--text); text-decoration: none;
+      transition: background 0.18s, border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+      position: relative; overflow: hidden;
+    }
+    .link-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, transparent 40%, rgba(139,92,246,0.05));
+      opacity: 0; transition: opacity 0.2s; pointer-events: none;
+    }
+    .link-card:hover { background: var(--card-hover); border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 6px 24px var(--glow); }
+    .link-card:hover::after { opacity: 1; }
+    .link-card:active { transform: translateY(0); }
+
+    /* Icon */
+    .link-icon {
+      width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: background 0.18s; overflow: hidden;
+    }
+    .link-card:hover .link-icon { background: rgba(255,255,255,0.1); }
+    .link-icon img { width: 22px; height: 22px; object-fit: contain; display: block; border-radius: 4px; }
+
+    /* Text */
+    .link-text { flex: 1; min-width: 0; }
+    .link-name { font-size: 0.85rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .link-arrow { color: var(--muted); font-size: 0.6rem; opacity: 0; transform: translateX(-3px); transition: opacity 0.18s, transform 0.18s; flex-shrink: 0; }
+    .link-card:hover .link-arrow { opacity: 0.55; transform: translateX(0); }
+
+    /* Inactive section */
+    .section.inactive .section-title { opacity: 0.5; }
+    .section.inactive .link-card { opacity: 0.55; }
+    .section.inactive .link-card:hover { opacity: 1; }
+
+    /* Footer */
+    footer { text-align: center; padding: 36px 0 0; color: var(--muted); font-size: 0.75rem; }
+
+    /* Responsive */
+    @media (max-width: 520px) {
+      .links-grid { grid-template-columns: 1fr; }
+      .links-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+      .profile h1 { font-size: 1.5rem; }
+    }
+    @media (max-width: 360px) { .links-grid.cols-3 { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-    <div id="root"></div>
+<div class="container">
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+  <div class="profile">
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <img class="avatar" src="avatar.jpg" alt="Roy Rubin">
+    </div>
+    <h1>Roy Rubin</h1>
+    <p class="handle">mostly @therubio everywhere</p>
+  </div>
 
-        // Custom Grayscale Brand Icons (SVG)
-        const BlueskyIcon = () => (
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 10.8c-1.087-2.114-4.046-5.053-6.098-5.053C3.4 5.747 2 7.037 2 9.1c0 2.224 1.584 3.493 3.321 3.493.385 0 .753-.06 1.096-.174-1.298.816-3.155 1.586-3.155 4.1 0 2.5 1.9 4.1 4.1 4.1 2.3 0 4.3-1.8 4.637-4.423.337 2.623 2.337 4.423 4.637 4.423 2.2 0 4.1-1.6 4.1-4.1 0-2.514-1.857-3.284-3.155-4.1.343.114.711.174 1.096.174 1.737 0 3.321-1.269 3.321-3.493 0-2.063-1.4-3.353-3.902-3.353-2.052 0-5.011 2.939-6.098 5.053z"/></svg>
-        );
+  <!-- Contact -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Contact</div>
+    </div>
+    <div class="links-grid cols-3">
+      <a href="mailto:me@therubio.com" class="link-card">
+        <div class="link-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:4px;flex-shrink:0"><rect width="24" height="24" rx="3" fill="#EA4335"/><path d="M4 8h16v10a1 1 0 01-1 1H5a1 1 0 01-1-1V8z" fill="none"/><path d="M4 8l8 6 8-6" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><rect x="4" y="8" width="16" height="10" rx="1" stroke="white" stroke-width="1.3" fill="none"/></svg></div>
+        <div class="link-text"><div class="link-name">Email</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://api.whatsapp.com/send?phone=972544606321" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="border-radius:4px;flex-shrink:0"><rect width="24" height="24" rx="3" fill="#25D366"/><path fill="white" d="M12 3.8C7.6 3.8 4 7.4 4 11.8c0 1.5.42 2.9 1.14 4.1L4 20.2l4.3-1.13A8.15 8.15 0 0012 20.2c4.4 0 8-3.6 8-8s-3.6-8.4-8-8.4zm3.97 11.4c-.17.49-1.02.94-1.4 1-.36.05-.8.07-1.3-.09-.3-.1-.68-.22-1.17-.44-2.05-.88-3.38-2.96-3.49-3.1-.1-.13-.84-1.12-.84-2.13 0-1.02.53-1.52.72-1.72.19-.2.42-.25.56-.25h.4c.12 0 .31-.05.48.37.18.43.62 1.54.68 1.65.06.11.1.24.02.38-.08.14-.12.23-.23.35l-.34.37c-.11.1-.22.21-.1.4.13.2.57.94 1.23 1.53.84.75 1.55.98 1.77 1.09.2.1.33.09.45-.06.13-.14.55-.65.7-.87.14-.22.28-.18.47-.11.19.07 1.25.59 1.47.7.21.1.35.15.4.23.05.08.05.47-.12.96z"/></svg></div>
+        <div class="link-text"><div class="link-name">WhatsApp</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://t.me/TheRubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=telegram.org" alt="Telegram"></div>
+        <div class="link-text"><div class="link-name">Telegram</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+    </div>
+  </div>
 
-        const TikTokIcon = () => (
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.9-.39-2.82-.12-1.07.3-1.95 1.14-2.3 2.18-.32.95-.21 2.05.31 2.91.56.98 1.58 1.66 2.69 1.83.69.11 1.41.05 2.07-.17.96-.32 1.77-1.1 2.11-2.05.15-.43.21-.88.22-1.33.03-5.92.01-11.84.02-17.76z"/></svg>
-        );
+  <!-- Community -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Community</div>
+    </div>
+    <div class="links-grid cols-3">
+      <a href="https://bsky.app/profile/therubio.com" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=bsky.app" alt="Bluesky"></div>
+        <div class="link-text"><div class="link-name">Bluesky</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://letterboxd.com/therubio/films/diary/" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=letterboxd.com" alt="Letterboxd"></div>
+        <div class="link-text"><div class="link-name">Letterboxd</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://instagram.com/therubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=instagram.com" alt="Instagram"></div>
+        <div class="link-text"><div class="link-name">Instagram</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://www.threads.com/@therubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=threads.com" alt="Threads"></div>
+        <div class="link-text"><div class="link-name">Threads</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://www.facebook.com/Roy.Rubin" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=facebook.com" alt="Facebook"></div>
+        <div class="link-text"><div class="link-name">Facebook</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://www.reddit.com/user/TheRubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=reddit.com" alt="Reddit"></div>
+        <div class="link-text"><div class="link-name">Reddit</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://tiktok.com/@therubioftw" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=tiktok.com" alt="TikTok"></div>
+        <div class="link-text"><div class="link-name">TikTok</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://x.com/therubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=x.com" alt="X"></div>
+        <div class="link-text"><div class="link-name">X (Twitter)</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://www.kiva.org/lender/roy1231" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=kiva.org" alt="Kiva"></div>
+        <div class="link-text"><div class="link-name">Kiva</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+    </div>
+  </div>
 
-        const MastodonIcon = () => (
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.677 4.065 4.912 4.065h.007c1.142 0 2.2-.28 3.163-.76 1.885-.927 3.349-2.533 3.349-2.533l.068-.082-1.258-.974s-.033.024-.072.052c-1.57.843-3.19 1.11-4.746.924-2.444-.293-3.186-2.16-3.274-3.68-.006-.1-.003-.201-.003-.3 0 0 2.28.57 4.554.58 1.481.01 2.96-.076 4.422-.27 2.194-.303 3.993-1.356 4.404-4.074.074-.466.149-.934.171-1.416.111-2.395.075-4.789-.069-7.185"/></svg>
-        );
+  <!-- Media and Games -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Media and Games</div>
+    </div>
+    <div class="links-grid">
+      <a href="https://www.youtube.com/channel/UCr2jYDOJRKmK6hagM5lMzAw" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=youtube.com" alt="YouTube"></div>
+        <div class="link-text"><div class="link-name">YouTube</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://www.patreon.com/therubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=patreon.com" alt="Patreon"></div>
+        <div class="link-text"><div class="link-name">Patreon</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://open.spotify.com/user/2155bejgmujkyvdnr2aerpuqy" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=spotify.com" alt="Spotify"></div>
+        <div class="link-text"><div class="link-name">Spotify</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://music.apple.com/profile/The_Rubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=music.apple.com" alt="Apple Music"></div>
+        <div class="link-text"><div class="link-name">Apple Music</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://www.twitch.tv/therubioftw" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=twitch.tv" alt="Twitch"></div>
+        <div class="link-text"><div class="link-name">Twitch</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://steamcommunity.com/id/the_rubio/" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=store.steampowered.com" alt="Steam"></div>
+        <div class="link-text"><div class="link-name">Steam</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://app.thestorygraph.com/profile/therubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=thestorygraph.com" alt="StoryGraph"></div>
+        <div class="link-text"><div class="link-name">StoryGraph</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://www.goodreads.com/therubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=goodreads.com" alt="Goodreads"></div>
+        <div class="link-text"><div class="link-name">Goodreads</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+    </div>
+  </div>
 
-        const DiggIcon = () => (
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M5.333 1.333V0H0v12h12V1.333H5.333zM4 10.667H1.333V4H4v6.667zm6.667 0H8V4h2.667v6.667zm-2.667-8V1.333h2.667v1.334H8zM4 2.667V1.333H1.333v1.334H4z" transform="scale(1.5) translate(2 2)"/></svg>
-        );
+  <!-- Professional -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Professional</div>
+    </div>
+    <div class="links-grid cols-1">
+      <a href="https://www.linkedin.com/in/therubio/" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=linkedin.com" alt="LinkedIn"></div>
+        <div class="link-text"><div class="link-name">LinkedIn</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://github.com/therubioftw" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=github.com" alt="GitHub"></div>
+        <div class="link-text"><div class="link-name">GitHub</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+    </div>
+  </div>
 
-        const Icon = ({ name, className }) => {
-            useEffect(() => {
-                if (window.lucide) window.lucide.createIcons();
-            }, []);
-            return <i data-lucide={name} className={className}></i>;
-        };
+  <!-- Not in use at the moment -->
+  <div class="section inactive">
+    <div class="section-header">
+      <div class="section-title">Not in use at the moment</div>
+    </div>
+    <div class="links-grid">
+      <a href="https://mastodon.social/@therubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=mastodon.social" alt="Mastodon"></div>
+        <div class="link-text"><div class="link-name">Mastodon</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://substack.com/profile/101391087-therubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=substack.com" alt="Substack"></div>
+        <div class="link-text"><div class="link-name">Substack</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://www.snapchat.com/add/the_rubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=snapchat.com" alt="Snapchat"></div>
+        <div class="link-text"><div class="link-name">Snapchat</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://bere.al/therubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=bere.al" alt="BeReal"></div>
+        <div class="link-text"><div class="link-name">BeReal</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://pixelfed.social/therubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=pixelfed.social" alt="Pixelfed"></div>
+        <div class="link-text"><div class="link-name">Pixelfed</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://www.clubhouse.com/@therubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=clubhouse.com" alt="Clubhouse"></div>
+        <div class="link-text"><div class="link-name">Clubhouse</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+      <a href="https://digg.com/@therubio" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon"><img src="https://www.google.com/s2/favicons?sz=64&domain=digg.com" alt="Digg"></div>
+        <div class="link-text"><div class="link-name">Digg</div></div>
+        <span class="link-arrow">&rsaquo;</span>
+      </a>
+    </div>
+  </div>
 
-        const App = () => {
-            const [scrolled, setScrolled] = useState(false);
+  <footer><p>royrubin.com &nbsp;&middot;&nbsp; therubio.com</p></footer>
 
-            useEffect(() => {
-                const handleScroll = () => setScrolled(window.scrollY > 20);
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
-
-            const categories = [
-                {
-                    title: "Social",
-                    icon: "hash",
-                    links: [
-                        { name: "Bluesky", url: "https://bsky.app/profile/therubio.bsky.social", icon: <BlueskyIcon />, color: "#0085ff" },
-                        { name: "Instagram", url: "https://instagram.com/therubio", icon: <Icon name="instagram" className="w-5 h-5"/>, color: "#E1306C" },
-                        { name: "Threads", url: "https://threads.net/@therubio", icon: <Icon name="hash" className="w-5 h-5"/>, color: "#1e1e1e" },
-                        { name: "Facebook", url: "https://facebook.com/therubio", icon: <Icon name="facebook" className="w-5 h-5"/>, color: "#1877F2" },
-                        { name: "Mastodon", url: "https://mastodon.social/@therubio", icon: <MastodonIcon />, color: "#6364ff" },
-                        { name: "X", url: "https://x.com/therubio", icon: <Icon name="twitter" className="w-5 h-5"/>, color: "#000000" },
-                        { name: "BeReal", url: "https://bere.al/therubio", icon: <Icon name="user" className="w-5 h-5"/>, color: "#000000" },
-                        { name: "TikTok", url: "https://tiktok.com/@therubio", icon: <TikTokIcon />, color: "#000000" },
-                        { name: "Snapchat", url: "https://snapchat.com/add/therubio", icon: <Icon name="zap" className="w-5 h-5"/>, color: "#FFFC00", darkText: true },
-                        { name: "Clubhouse", url: "https://clubhouse.com/@therubio", icon: <Icon name="coffee" className="w-5 h-5"/>, color: "#F1E9DE", darkText: true },
-                    ]
-                },
-                {
-                    title: "Media & Audio",
-                    icon: "music",
-                    links: [
-                        { name: "Apple Music", url: "https://music.apple.com/profile/therubio", icon: <Icon name="music" className="w-5 h-5"/>, color: "#FC3C44" },
-                        { name: "Spotify", url: "https://open.spotify.com/user/therubio", icon: <Icon name="disc" className="w-5 h-5"/>, color: "#1DB954" },
-                        { name: "YouTube", url: "https://youtube.com/@therubio", icon: <Icon name="youtube" className="w-5 h-5"/>, color: "#FF0000" },
-                        { name: "Twitch", url: "https://twitch.tv/therubio", icon: <Icon name="tv" className="w-5 h-5"/>, color: "#9146FF" },
-                        { name: "Letterboxd", url: "https://letterboxd.com/therubio", icon: <Icon name="tv" className="w-5 h-5"/>, color: "#00E054" },
-                        { name: "Pixelfed", url: "https://pixelfed.social/therubio", icon: <Icon name="layers" className="w-5 h-5"/>, color: "#6364ff" },
-                    ]
-                },
-                {
-                    title: "Contact & Professional",
-                    icon: "layers",
-                    links: [
-                        { name: "Email", url: "mailto:hello@royrubin.com", icon: <Icon name="mail" className="w-5 h-5"/>, color: "#64748b" },
-                        { name: "WhatsApp", url: "https://wa.me/message/therubio", icon: <Icon name="message-circle" className="w-5 h-5"/>, color: "#25D366" },
-                        { name: "Telegram", url: "https://t.me/therubio", icon: <Icon name="send" className="w-5 h-5"/>, color: "#229ED9" },
-                        { name: "LinkedIn", url: "https://linkedin.com/in/royrubin", icon: <Icon name="linkedin" className="w-5 h-5"/>, color: "#0077B5" },
-                        { name: "GitHub", url: "https://github.com/therubio", icon: <Icon name="github" className="w-5 h-5"/>, color: "#181717" },
-                        { name: "Substack", url: "https://therubio.substack.com", icon: <Icon name="book-open" className="w-5 h-5"/>, color: "#FF6719" },
-                        { name: "Patreon", url: "https://patreon.com/therubio", icon: <Icon name="heart" className="w-5 h-5"/>, color: "#FF424D" },
-                    ]
-                },
-                {
-                    title: "Discovery & Community",
-                    icon: "gamepad-2",
-                    links: [
-                        { name: "Goodreads", url: "https://goodreads.com/therubio", icon: <Icon name="book-open" className="w-5 h-5"/>, color: "#372213" },
-                        { name: "The StoryGraph", url: "https://thestorygraph.com/profile/therubio", icon: <Icon name="book-open" className="w-5 h-5"/>, color: "#18181b" },
-                        { name: "Steam", url: "https://steamcommunity.com/id/therubio", icon: <Icon name="gamepad-2" className="w-5 h-5"/>, color: "#171a21" },
-                        { name: "Reddit", url: "https://reddit.com/user/therubio", icon: <Icon name="message-circle" className="w-5 h-5"/>, color: "#FF4500" },
-                        { name: "Digg", url: "https://digg.com/@therubio", icon: <DiggIcon />, color: "#1b1c1d" },
-                        { name: "Kiva", url: "https://kiva.org/lender/therubio", icon: <Icon name="heart" className="w-5 h-5"/>, color: "#4faf4e" },
-                    ]
-                }
-            ];
-
-            return (
-                <div className="min-h-screen pb-20 overflow-x-hidden">
-                    {/* Subtle Ambient Glows */}
-                    <div className="fixed inset-0 overflow-hidden pointer-events-none">
-                        <div className="absolute top-[-5%] left-[-5%] w-[50%] h-[50%] bg-glow-1 blur-[150px] rounded-full" />
-                        <div className="absolute bottom-[-5%] right-[-5%] w-[50%] h-[50%] bg-glow-2 blur-[150px] rounded-full" />
-                    </div>
-
-                    {/* Header */}
-                    <header className={`sticky top-0 z-50 transition-all duration-500 px-6 py-8 flex flex-col items-center ${scrolled ? 'bg-[#0a0a0c]/90 backdrop-blur-xl border-b border-white/5 py-3' : ''}`}>
-                        <div className="relative group cursor-default">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/50 to-blue-600/50 rounded-full blur opacity-20 group-hover:opacity-60 transition duration-1000"></div>
-                            <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full bg-slate-900 border border-white/10 overflow-hidden flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                                <span className="text-3xl font-black text-white/30 tracking-tighter group-hover:text-white/60 transition-colors">RR</span>
-                            </div>
-                        </div>
-                        <div className="mt-4 text-center">
-                            <h1 className="text-2xl font-bold tracking-tight text-white">Roy Rubin</h1>
-                            <p className="text-indigo-400 font-semibold tracking-widest mt-0.5 text-[10px] uppercase opacity-80">mostly @therubio</p>
-                        </div>
-                    </header>
-
-                    {/* Main Content */}
-                    <main className="max-w-6xl mx-auto px-6 mt-12 relative z-10">
-                        <div className="w-full space-y-20">
-                            {categories.map((category, catIdx) => (
-                                <section key={catIdx} className="flex flex-col items-center space-y-6">
-                                    <div className="flex items-center gap-2 text-slate-500 font-bold text-[10px] uppercase tracking-[0.4em] opacity-50">
-                                        <Icon name={category.icon} className="w-4 h-4"/>
-                                        <span>{category.title}</span>
-                                    </div>
-                                    <div className="grid grid-cols-4 min-[420px]:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full max-w-4xl justify-items-center">
-                                        {category.links.map((link, linkIdx) => (
-                                            <a
-                                                key={linkIdx}
-                                                href={link.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                style={{ backgroundColor: link.color }}
-                                                className={`group relative flex items-center justify-center min-[420px]:justify-between p-3 min-[420px]:px-4 min-[420px]:py-2.5 rounded-xl shadow-lg transition-all duration-300 
-                                                  hover:-translate-y-1.5 hover:scale-[1.03] hover:brightness-110 active:scale-[0.98] 
-                                                  w-12 h-12 min-[420px]:w-64 min-[420px]:h-auto overflow-hidden
-                                                  ${link.darkText ? 'text-black' : 'text-white'}
-                                                `}
-                                                title={link.name}
-                                            >
-                                                <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shine pointer-events-none" />
-                                                <div className="flex-shrink-0 flex items-center justify-center opacity-90 group-hover:scale-125 group-hover:opacity-100 transition-all duration-300">
-                                                    {link.icon}
-                                                </div>
-                                                <span className="hidden min-[420px]:block font-bold text-sm tracking-tight flex-grow text-left group-hover:tracking-normal transition-all duration-300 ml-3">
-                                                    {link.name}
-                                                </span>
-                                                <Icon name="chevron-right" className="hidden min-[420px]:block w-3.5 h-3.5 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"/>
-                                                <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300" />
-                                            </a>
-                                        ))}
-                                    </div>
-                                </section>
-                            ))}
-                        </div>
-                        <footer className="text-center mt-32 mb-12 opacity-30 hover:opacity-100 transition-opacity duration-700 cursor-default">
-                            <div className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.4em] text-slate-500">
-                                <Icon name="ghost" className="w-3 h-3 animate-bounce"/>
-                                <span>Roy Rubin • 2024</span>
-                            </div>
-                        </footer>
-                    </main>
-
-                    {/* Mobile Floating Mail Action */}
-                    <div className="fixed bottom-6 right-6 lg:hidden z-50">
-                        <a href="mailto:hello@royrubin.com" className="w-12 h-12 rounded-2xl bg-white text-black shadow-2xl flex items-center justify-center hover:scale-110 active:scale-90 transition-all border border-black/10">
-                            <Icon name="mail" className="w-5 h-5"/>
-                        </a>
-                    </div>
-                </div>
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+</div>
 </body>
 </html>
