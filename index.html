@@ -135,12 +135,6 @@
       background: linear-gradient(135deg, transparent 40%, color-mix(in srgb, var(--tint) 9%, transparent));
       opacity: 0; transition: opacity 0.2s; pointer-events: none;
     }
-    .link-card:hover { background: var(--card-hover); border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 6px 24px var(--glow); }
-    .link-card:hover {
-      border-color: color-mix(in srgb, var(--tint) 55%, transparent);
-      box-shadow: 0 6px 24px color-mix(in srgb, var(--tint) 30%, transparent);
-    }
-    .link-card:hover::after { opacity: 1; }
     .link-card:active { transform: translateY(0); }
     .link-card:focus-visible {
       outline: 2px solid var(--accent);
@@ -157,20 +151,34 @@
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; transition: background 0.18s; overflow: hidden;
     }
-    .link-card:hover .link-icon { background: rgba(255,255,255,0.1); }
-    .link-card:hover .link-icon { background: color-mix(in srgb, var(--tint) 20%, transparent); }
     .link-icon img { width: 22px; height: 22px; object-fit: contain; display: block; border-radius: 4px; }
 
     /* Text */
     .link-text { flex: 1; min-width: 0; }
     .link-name { font-size: 0.85rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .link-arrow { color: var(--muted); font-size: 0.6rem; opacity: 0; transform: translateX(-3px); transition: opacity 0.18s, transform 0.18s; flex-shrink: 0; }
-    .link-card:hover .link-arrow { opacity: 0.55; transform: translateX(0); }
 
     /* Inactive section */
     .section.inactive .section-title { opacity: 0.5; }
     .section.inactive .link-card { opacity: 0.55; }
-    .section.inactive .link-card:hover { opacity: 1; }
+
+    /* Hover, only where a real pointer exists.
+       On touch there is no pointer to move away, so :hover sticks after a tap --
+       a card stays lifted with its brand glow until you tap somewhere else.
+       Touch still gets :active feedback, and :focus-visible is unaffected. */
+    @media (hover: hover) {
+      .link-card:hover { background: var(--card-hover); border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 6px 24px var(--glow); }
+      .link-card:hover {
+        border-color: color-mix(in srgb, var(--tint) 55%, transparent);
+        box-shadow: 0 6px 24px color-mix(in srgb, var(--tint) 30%, transparent);
+      }
+      .link-card:hover::after { opacity: 1; }
+      .link-card:hover .link-icon { background: rgba(255,255,255,0.1); }
+      .link-card:hover .link-icon { background: color-mix(in srgb, var(--tint) 20%, transparent); }
+      .link-card:hover .link-arrow { opacity: 0.55; transform: translateX(0); }
+      .section.inactive .link-card:hover { opacity: 1; }
+      .ftr-btn:hover { background: var(--card-hover); border-color: var(--border-hover); color: var(--text); }
+    }
 
     /* Footer */
     footer { text-align: center; padding: 36px 0 0; color: var(--muted); font-size: 0.75rem; }
@@ -186,7 +194,6 @@
       cursor: pointer; text-decoration: none; line-height: 1.4;
       transition: background 0.18s, border-color 0.18s, color 0.18s;
     }
-    .ftr-btn:hover { background: var(--card-hover); border-color: var(--border-hover); color: var(--text); }
     .ftr-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
     /* Responsive */
