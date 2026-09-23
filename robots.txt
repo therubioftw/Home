@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://therubioftw.github.io/Home/sitemap.xml
+Sitemap: https://therubio.com/sitemap.xml
