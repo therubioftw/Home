@@ -20,6 +20,7 @@
   <meta name="twitter:title" content="Roy Rubin &middot; @therubio">
   <meta name="twitter:description" content="Roy Rubin &mdash; find me everywhere as @therubio">
   <meta name="twitter:image" content="https://therubioftw.github.io/Home/avatar.jpg">
+  <link rel="canonical" href="https://therubioftw.github.io/Home/">
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <style>
     /* Inter, self-hosted. Variable font covering the full 100-900 axis;
@@ -173,6 +174,20 @@
 
     /* Footer */
     footer { text-align: center; padding: 36px 0 0; color: var(--muted); font-size: 0.75rem; }
+    footer p + p { margin-top: 12px; }
+    .contact-line {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; flex-wrap: wrap;
+    }
+    .contact-line .addr { color: var(--text); }
+    .ftr-btn {
+      font: inherit; color: var(--muted); background: var(--card);
+      border: 1px solid var(--border); border-radius: 7px; padding: 4px 9px;
+      cursor: pointer; text-decoration: none; line-height: 1.4;
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
+    }
+    .ftr-btn:hover { background: var(--card-hover); border-color: var(--border-hover); color: var(--text); }
+    .ftr-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
     /* Responsive */
     @media (max-width: 520px) {
@@ -193,6 +208,43 @@
       }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Roy Rubin",
+    "alternateName": "therubio",
+    "url": "https://therubioftw.github.io/Home/",
+    "image": "https://therubioftw.github.io/Home/avatar.jpg",
+    "email": "mailto:me@therubio.com",
+    "sameAs": [
+      "https://t.me/TheRubio",
+      "https://bsky.app/profile/therubio.com",
+      "https://letterboxd.com/therubio/films/diary/",
+      "https://instagram.com/therubio",
+      "https://www.threads.com/@therubio",
+      "https://www.facebook.com/Roy.Rubin",
+      "https://www.reddit.com/user/TheRubio",
+      "https://tiktok.com/@therubioftw",
+      "https://x.com/therubio",
+      "https://www.kiva.org/lender/roy1231",
+      "https://www.youtube.com/channel/UCr2jYDOJRKmK6hagM5lMzAw",
+      "https://open.spotify.com/user/2155bejgmujkyvdnr2aerpuqy",
+      "https://www.twitch.tv/therubioftw",
+      "https://steamcommunity.com/id/the_rubio/",
+      "https://app.thestorygraph.com/profile/therubio",
+      "https://www.goodreads.com/therubio",
+      "https://www.linkedin.com/in/therubio/",
+      "https://github.com/therubioftw",
+      "https://mastodon.social/@therubio",
+      "https://substack.com/profile/101391087-therubio",
+      "https://www.snapchat.com/add/the_rubio",
+      "https://bere.al/therubio",
+      "https://pixelfed.social/therubio",
+      "https://www.clubhouse.com/@therubio"
+    ]
+  }
+  </script>
 </head>
 <body>
 <div class="container">
@@ -222,7 +274,7 @@
         <div class="link-text"><div class="link-name">WhatsApp</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://t.me/TheRubio" class="link-card" style="--tint:#33aae5" target="_blank" rel="noopener">
+      <a href="https://t.me/TheRubio" class="link-card" style="--tint:#33aae5" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/telegram.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Telegram</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
@@ -236,47 +288,47 @@
       <h2 class="section-title">Community</h2>
     </div>
     <div class="links-grid cols-3">
-      <a href="https://bsky.app/profile/therubio.com" class="link-card" style="--tint:#1a8afe" target="_blank" rel="noopener">
+      <a href="https://bsky.app/profile/therubio.com" class="link-card" style="--tint:#1a8afe" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/bluesky.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Bluesky</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://letterboxd.com/therubio/films/diary/" class="link-card" style="--tint:#41b7ed" target="_blank" rel="noopener">
+      <a href="https://letterboxd.com/therubio/films/diary/" class="link-card" style="--tint:#41b7ed" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/letterboxd.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Letterboxd</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://instagram.com/therubio" class="link-card" style="--tint:#f82088" target="_blank" rel="noopener">
+      <a href="https://instagram.com/therubio" class="link-card" style="--tint:#f82088" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/instagram.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Instagram</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://www.threads.com/@therubio" class="link-card" style="--tint:#dfe6f2" target="_blank" rel="noopener">
+      <a href="https://www.threads.com/@therubio" class="link-card" style="--tint:#dfe6f2" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/threads.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Threads</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://www.facebook.com/Roy.Rubin" class="link-card" style="--tint:#1a71ff" target="_blank" rel="noopener">
+      <a href="https://www.facebook.com/Roy.Rubin" class="link-card" style="--tint:#1a71ff" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/facebook.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Facebook</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://www.reddit.com/user/TheRubio" class="link-card" style="--tint:#fd581b" target="_blank" rel="noopener">
+      <a href="https://www.reddit.com/user/TheRubio" class="link-card" style="--tint:#fd581b" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/reddit.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Reddit</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://tiktok.com/@therubioftw" class="link-card" style="--tint:#ff0050" target="_blank" rel="noopener">
+      <a href="https://tiktok.com/@therubioftw" class="link-card" style="--tint:#ff0050" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/tiktok.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">TikTok</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://x.com/therubio" class="link-card" style="--tint:#dfe6f2" target="_blank" rel="noopener">
+      <a href="https://x.com/therubio" class="link-card" style="--tint:#dfe6f2" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/x.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">X (Twitter)</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://www.kiva.org/lender/roy1231" class="link-card" style="--tint:#76d147" target="_blank" rel="noopener">
+      <a href="https://www.kiva.org/lender/roy1231" class="link-card" style="--tint:#76d147" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/kiva.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Kiva</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
@@ -290,32 +342,32 @@
       <h2 class="section-title">Media and Games</h2>
     </div>
     <div class="links-grid">
-      <a href="https://www.youtube.com/channel/UCr2jYDOJRKmK6hagM5lMzAw" class="link-card" style="--tint:#ff1a48" target="_blank" rel="noopener">
+      <a href="https://www.youtube.com/channel/UCr2jYDOJRKmK6hagM5lMzAw" class="link-card" style="--tint:#ff1a48" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/youtube.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">YouTube</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://open.spotify.com/user/2155bejgmujkyvdnr2aerpuqy" class="link-card" style="--tint:#36e373" target="_blank" rel="noopener">
+      <a href="https://open.spotify.com/user/2155bejgmujkyvdnr2aerpuqy" class="link-card" style="--tint:#36e373" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/spotify.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Spotify</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://www.twitch.tv/therubioftw" class="link-card" style="--tint:#9248ff" target="_blank" rel="noopener">
+      <a href="https://www.twitch.tv/therubioftw" class="link-card" style="--tint:#9248ff" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/twitch.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Twitch</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://steamcommunity.com/id/the_rubio/" class="link-card" style="--tint:#3594e3" target="_blank" rel="noopener">
+      <a href="https://steamcommunity.com/id/the_rubio/" class="link-card" style="--tint:#3594e3" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/steam.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Steam</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://app.thestorygraph.com/profile/therubio" class="link-card" style="--tint:#dfe6f2" target="_blank" rel="noopener">
+      <a href="https://app.thestorygraph.com/profile/therubio" class="link-card" style="--tint:#dfe6f2" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/storygraph.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">StoryGraph</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://www.goodreads.com/therubio" class="link-card" style="--tint:#dfe6f2" target="_blank" rel="noopener">
+      <a href="https://www.goodreads.com/therubio" class="link-card" style="--tint:#dfe6f2" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/goodreads.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Goodreads</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
@@ -329,12 +381,12 @@
       <h2 class="section-title">Professional</h2>
     </div>
     <div class="links-grid cols-1">
-      <a href="https://www.linkedin.com/in/therubio/" class="link-card" style="--tint:#1dadfb" target="_blank" rel="noopener">
+      <a href="https://www.linkedin.com/in/therubio/" class="link-card" style="--tint:#1dadfb" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/linkedin.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">LinkedIn</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://github.com/therubioftw" class="link-card" style="--tint:#dfe6f2" target="_blank" rel="noopener">
+      <a href="https://github.com/therubioftw" class="link-card" style="--tint:#dfe6f2" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/github.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">GitHub</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
@@ -348,32 +400,32 @@
       <h2 class="section-title">Not in use at the moment</h2>
     </div>
     <div class="links-grid">
-      <a href="https://mastodon.social/@therubio" class="link-card" style="--tint:#645df1" target="_blank" rel="noopener">
+      <a href="https://mastodon.social/@therubio" class="link-card" style="--tint:#645df1" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/mastodon.jpg" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Mastodon</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://substack.com/profile/101391087-therubio" class="link-card" style="--tint:#fa661f" target="_blank" rel="noopener">
+      <a href="https://substack.com/profile/101391087-therubio" class="link-card" style="--tint:#fa661f" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/substack.jpg" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Substack</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://www.snapchat.com/add/the_rubio" class="link-card" style="--tint:#fffc1a" target="_blank" rel="noopener">
+      <a href="https://www.snapchat.com/add/the_rubio" class="link-card" style="--tint:#fffc1a" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/snapchat.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Snapchat</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://bere.al/therubio" class="link-card" style="--tint:#dfe6f2" target="_blank" rel="noopener">
+      <a href="https://bere.al/therubio" class="link-card" style="--tint:#dfe6f2" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/bereal.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">BeReal</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://pixelfed.social/therubio" class="link-card" style="--tint:#27f160" target="_blank" rel="noopener">
+      <a href="https://pixelfed.social/therubio" class="link-card" style="--tint:#27f160" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/pixelfed.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Pixelfed</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
       </a>
-      <a href="https://www.clubhouse.com/@therubio" class="link-card" style="--tint:#edd44b" target="_blank" rel="noopener">
+      <a href="https://www.clubhouse.com/@therubio" class="link-card" style="--tint:#edd44b" target="_blank" rel="me noopener">
         <div class="link-icon"><img src="icons/clubhouse.png" alt="" loading="lazy" width="22" height="22"></div>
         <div class="link-text"><div class="link-name">Clubhouse</div></div>
         <span class="link-arrow" aria-hidden="true">&rsaquo;</span>
@@ -381,8 +433,34 @@
     </div>
   </div>
 
-  <footer><p>royrubin.com &nbsp;&middot;&nbsp; therubio.com</p></footer>
+  <footer>
+    <p class="contact-line">
+      <span class="addr">me@therubio.com</span>
+      <button type="button" class="ftr-btn" id="copy-email" aria-live="polite" hidden>copy</button>
+      <a class="ftr-btn" href="roy-rubin.vcf" download>save contact</a>
+    </p>
+    <p>royrubin.com &nbsp;&middot;&nbsp; therubio.com</p>
+  </footer>
 
 </div>
+
+<script>
+  /* The only script on the page. The address is plain text above, so it stays
+     readable and selectable if this never runs. The button starts hidden and is
+     revealed only where the clipboard API actually works (needs a secure
+     context, so not over file://). */
+  (function () {
+    var btn = document.getElementById('copy-email');
+    var addr = document.querySelector('.contact-line .addr');
+    if (!btn || !addr || !navigator.clipboard) return;
+    btn.hidden = false;
+    btn.addEventListener('click', function () {
+      navigator.clipboard.writeText(addr.textContent.trim()).then(function () {
+        btn.textContent = 'copied';
+        setTimeout(function () { btn.textContent = 'copy'; }, 1600);
+      }).catch(function () { btn.hidden = true; });
+    });
+  })();
+</script>
 </body>
 </html>
